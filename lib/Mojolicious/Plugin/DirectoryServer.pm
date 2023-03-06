@@ -10,7 +10,6 @@ use Encode ();
 use DirHandle;
 use Mojo::Base qw{ Mojolicious::Plugin };
 use Mojo::JSON qw(encode_json);
-use Mojolicious::Static;
 use Mojolicious::Types;
 
 # Stolen from Plack::App::Direcotry
