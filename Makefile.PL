@@ -1,4 +1,4 @@
-package Mojolicious::Plugin::DirectoryServer
+package Mojolicious::Plugin::DirectoryServer;
 use strict;
 use warnings;
 
