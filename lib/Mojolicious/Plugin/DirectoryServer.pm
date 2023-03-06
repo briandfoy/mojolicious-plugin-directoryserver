@@ -60,7 +60,7 @@ sub register {
             return render_file( $c, $root, $handler ) if ( -f $root->to_string() );
 
             my $path = $root->rel_file( Mojo::Util::url_unescape( $c->req->url->path ) );
-            if( $path =~ m|\Q/../| ) {
+            if( $path =~ m"\Q/..\E(/|\z)"n ) {
 				$c->reply->not_found;
             }
             elsif ( -f $path ) {
