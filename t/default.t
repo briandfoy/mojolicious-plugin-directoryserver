@@ -6,7 +6,7 @@ plugin 'DirectoryServer';
 use Test::More tests => 3;
 use Test::Mojo;
 
-my $t = Test::Mojo->new();
+my $t = Test::Mojo->new;
 $t->get_ok('/')->status_is(200);
 
 subtest 'entries' => sub {

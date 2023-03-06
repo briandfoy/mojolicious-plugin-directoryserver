@@ -10,6 +10,6 @@ plugin 'DirectoryServer', root => File::Spec->catfile( $dir, 'dummy.txt' );
 use Test::More tests => 6;
 use Test::Mojo;
 
-my $t = Test::Mojo->new();
+my $t = Test::Mojo->new;
 $t->get_ok('/')->status_is(200)->content_like(qr/^DUMMY$/);
 $t->get_ok('/foo/bar/buz')->status_is(200)->content_like(qr/^DUMMY$/);

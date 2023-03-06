@@ -9,6 +9,6 @@ plugin 'DirectoryServer', root => $dir, auto_index => 0;
 use Test::More tests => 2;
 use Test::Mojo;
 
-my $t = Test::Mojo->new();
+my $t = Test::Mojo->new;
 
 $t->get_ok('/')->status_is(404);

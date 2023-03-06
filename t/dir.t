@@ -11,7 +11,7 @@ plugin 'DirectoryServer', root => $dir, json => 1;
 use Test::More tests => 2;
 use Test::Mojo;
 
-my $t = Test::Mojo->new();
+my $t = Test::Mojo->new;
 
 subtest 'entries' => sub {
     $t->get_ok('/')->status_is(200);
