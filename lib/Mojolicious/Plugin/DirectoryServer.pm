@@ -59,11 +59,13 @@ sub register {
             my $c = shift;
             return render_file( $c, $root, $handler ) if ( -f $root->to_string() );
 
-            my $path = $root->rel_file( Mojo::Util::url_unescape( $c->req->url->path ) );
-            if( $path =~ m"\Q/..\E(/|\z)"n ) {
+			if( $c->req->url->path =~ m"\Q/..\E(/|\z)"n ) {
 				$c->reply->not_found;
+				return;
             }
-            elsif ( -f $path ) {
+
+            my $path = $root->rel_file( Mojo::Util::url_unescape( $c->req->url->path ) );
+            if ( -f $path ) {
                 render_file( $c, $path, $handler );
             }
             elsif ( -d $path ) {
