@@ -8,7 +8,7 @@
 
 =for HTML <a href="https://www.github.com/briandfoy/mojolicious-plugin-directoryserver/actions?query=workflow%3Awindows"><img src="https://www.github.com/briandfoy/mojolicious-plugin-directoryserver/workflows/windows/badge.svg"></a>
 
-=for HTML <a href='https://ci.appveyor.com/project/briandfoy/mojolicious-plugin-directoryserver'><img src='https://ci.appveyor.com/api/projects/status/uribb3qscqy9o0nf' /></a>
+=for HTML <a href='https://ci.appveyor.com/project/briandfoy/mojolicious-plugin-directoryserver'><img src='https://ci.appveyor.com/api/projects/status/t0j5w47i8o6nkrb3?svg=true' /></a>
 
 =for HTML <a href='https://coveralls.io/github/briandfoy/mojolicious-plugin-directoryserver?branch=master'><img src='https://coveralls.io/repos/github/briandfoy/mojolicious-plugin-directoryserver/badge.svg?branch=master' alt='Coverage Status' /></a>
 
