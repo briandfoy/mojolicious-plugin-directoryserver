@@ -1,5 +1,7 @@
+use v5.20;
+use experimental qw(signatures);
+
 package Mojolicious::Plugin::DirectoryServer;
-use strict;
 use warnings;
 our $VERSION = '0.14';
 
@@ -7,8 +9,9 @@ use Cwd ();
 use Encode ();
 use DirHandle;
 use Mojo::Base qw{ Mojolicious::Plugin };
-use Mojolicious::Types;
 use Mojo::JSON qw(encode_json);
+use Mojolicious::Static;
+use Mojolicious::Types;
 
 # Stolen from Plack::App::Direcotry
 my $dir_page = <<'PAGE';
@@ -43,8 +46,7 @@ PAGE
 my $types = Mojolicious::Types->new;
 
 sub register {
-    my $self = shift;
-    my ( $app, $args ) = @_;
+    my ( $self, $app, $args ) = @_;
 
     my $root       = Mojo::Home->new( $args->{root} || Cwd::getcwd );
     my $handler    = $args->{handler};
@@ -56,9 +58,14 @@ sub register {
     $app->hook(
         before_dispatch => sub {
             my $c = shift;
+            print STDERR "In hook\n";
             return render_file( $c, $root, $handler ) if ( -f $root->to_string() );
+
             my $path = $root->rel_file( Mojo::Util::url_unescape( $c->req->url->path ) );
-            if ( -f $path ) {
+            if( $path =~ m|\Q/../| ) {
+				$c->reply->not_found;
+            }
+            elsif ( -f $path ) {
                 render_file( $c, $path, $handler );
             }
             elsif ( -d $path ) {
@@ -93,20 +100,13 @@ sub locate_index {
     }
 }
 
-sub render_file {
-    my $c       = shift;
-    my $path    = shift;
-    my $handler = shift;
-    $handler->( $c, $path ) if ( ref $handler eq 'CODE' );
-    return if ( $c->tx->res->code );
-    Mojolicious::Static->new->dispatch($c);
+sub render_file ($c, $path, $handler) {
+    $handler->( $c, $path ) if ref $handler eq 'CODE';
+    return if $c->tx->res->code;
+    $c->reply->file($path);
 }
 
-sub render_indexes {
-    my $c    = shift;
-    my $dir  = shift;
-    my $json = shift;
-
+sub render_indexes ($c, $dir, $json) {
     my @files =
         ( $c->req->url->path eq '/' )
         ? ()
