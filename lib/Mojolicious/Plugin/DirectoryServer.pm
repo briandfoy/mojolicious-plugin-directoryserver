@@ -1,16 +1,13 @@
 use v5.32;
 
 package Mojolicious::Plugin::DirectoryServer;
-use warnings;
-use experimental qw(signatures);
-no warnings qw(experimental::signatures);
 
 our $VERSION = '1.001';
 
 use Cwd ();
 use Encode ();
 use DirHandle;
-use Mojo::Base qw{ Mojolicious::Plugin };
+use Mojo::Base qw( Mojolicious::Plugin -signatures );
 use Mojo::JSON qw(encode_json);
 use Mojolicious::Types;
 
