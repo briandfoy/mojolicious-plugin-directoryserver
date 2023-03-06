@@ -1,4 +1,4 @@
-package Mojolicious::Plugin::Directory;
+package Mojolicious::Plugin::DirectoryServer;
 use strict;
 use warnings;
 our $VERSION = '0.14';
@@ -172,7 +172,7 @@ __END__
 
 =head1 NAME
 
-Mojolicious::Plugin::Directory - Serve static files from document root with directory index
+Mojolicious::Plugin::DirectoryServer - Serve static files from document root with directory index
 
 =head1 SYNOPSIS
 
