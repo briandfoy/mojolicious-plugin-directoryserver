@@ -3,6 +3,8 @@ use v5.32;
 package Mojolicious::Plugin::DirectoryServer;
 use warnings;
 use experimental qw(signatures);
+no warnings qw(experimental::signatures);
+
 our $VERSION = '1.001';
 
 use Cwd ();
