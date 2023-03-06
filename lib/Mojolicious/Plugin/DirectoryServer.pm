@@ -1,9 +1,9 @@
 use v5.32;
-use experimental qw(signatures);
 
 package Mojolicious::Plugin::DirectoryServer;
 use warnings;
-our $VERSION = '0.14';
+use experimental qw(signatures);
+our $VERSION = '1.001';
 
 use Cwd ();
 use Encode ();
