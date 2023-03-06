@@ -57,7 +57,6 @@ sub register {
     $app->hook(
         before_dispatch => sub {
             my $c = shift;
-            print STDERR "In hook\n";
             return render_file( $c, $root, $handler ) if ( -f $root->to_string() );
 
             my $path = $root->rel_file( Mojo::Util::url_unescape( $c->req->url->path ) );
