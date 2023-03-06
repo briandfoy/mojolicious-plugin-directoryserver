@@ -270,7 +270,7 @@ If not rendered in CODEREF, serve as static file.
 
   # Mojolicious::Lite
   # /dir (Accept: application/json)
-  # /dir?format=json
+  # /dir?_format=json
   plugin Directory => { json => 1 };
 
 Enable json response.

@@ -25,7 +25,7 @@ subtest 'entries' => sub {
 };
 
 subtest 'json' => sub {
-    my $res = $t->get_ok('/?format=json')->status_is(200);
+    my $res = $t->get_ok('/?_format=json')->status_is(200);
     if ( version->parse($Mojolicious::VERSION)->numify >= version->parse('6.09')->numify ) {
         $res->content_type_is('application/json;charset=UTF-8');
     } else {
