@@ -271,7 +271,10 @@ Enable json response.
 
 =head1 AUTHOR
 
-hayajo E<lt>hayajo@cpan.orgE<gt>
+The original author was hayajo E<lt>hayajo@cpan.orgE<gt>.
+
+The module was forked by brian d foy E<lt>bdfoy@cpan.orgE<gt> after
+the module was abandoned.
 
 =head1 CONTRIBUTORS
 
