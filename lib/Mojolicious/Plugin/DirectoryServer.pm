@@ -202,17 +202,20 @@ Mojolicious::Plugin::DirectoryServer - Serve static files from document root wit
 
 =head1 DESCRIPTION
 
-L<Mojolicious::Plugin::Directory> is a static file server directory index a la Apache's mod_autoindex.
+L<Mojolicious::Plugin::Directory> is a static file server with a
+directory index similar to Apache's mod_autoindex.
 
-=head1 METHODS
+=head2 Methods
 
 L<Mojolicious::Plugin::Directory> inherits all methods from L<Mojolicious::Plugin>.
 
-=head1 OPTIONS
+=head2 Options
 
 L<Mojolicious::Plugin::Directory> supports the following options.
 
-=head2 C<root>
+=over 4
+
+=item * C<root>
 
   # Mojolicious::Lite
   plugin Directory => { root => "/path/to/htdocs" };
@@ -221,28 +224,28 @@ Document root directory. Defaults to the current directory.
 
 If root is a file, serve only root file.
 
-=head2 C<auto_index>
+=item * C<auto_index>
 
    # Mojolicious::Lite
    plugin Directory => { auto_index => 0 };
 
 Automatically generate index page for directory, default true.
 
-=head2 C<dir_index>
+=item * C<dir_index>
 
   # Mojolicious::Lite
   plugin Directory => { dir_index => [qw/index.html index.htm/] };
 
 Like a Apache's DirectoryIndex directive.
 
-=head2 C<dir_page>
+=item * C<dir_page>
 
   # Mojolicious::Lite
   plugin Directory => { dir_page => $template_str };
 
 a HTML template of index page
 
-=head2 C<handler>
+=item * C<handler>
 
   # Mojolicious::Lite
   use Text::Markdown qw{ markdown };
@@ -263,7 +266,7 @@ CODEREF for handle a request file.
 
 If not rendered in CODEREF, serve as static file.
 
-=head2 C<json>
+=item * C<json>
 
   # Mojolicious::Lite
   # /dir (Accept: application/json)
@@ -271,6 +274,8 @@ If not rendered in CODEREF, serve as static file.
   plugin Directory => { json => 1 };
 
 Enable json response.
+
+=back
 
 =head1 AUTHOR
 
