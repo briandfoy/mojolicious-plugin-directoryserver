@@ -4,7 +4,7 @@ use Mojolicious::Lite;
 use File::Basename;
 
 my $dir = dirname(__FILE__);
-plugin 'Directory', root => $dir, dir_page => <<'EOF';
+plugin 'DirectoryServer', root => $dir, dir_page => <<'EOF';
 entries: <%= scalar @$files %>
 EOF
 

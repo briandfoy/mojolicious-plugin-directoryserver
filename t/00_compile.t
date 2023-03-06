@@ -1,4 +1,4 @@
 use strict;
-use Test::More tests => 1;
+use Test::More; END {done_testing()}
 
-BEGIN { use_ok 'Mojolicious::Plugin::Directory' }
+use_ok 'Mojolicious::Plugin::DirectoryServer';

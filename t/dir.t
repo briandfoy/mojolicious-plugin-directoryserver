@@ -6,7 +6,7 @@ use Encode ();
 use version;
 
 my $dir = dirname(__FILE__);
-plugin 'Directory', root => $dir, json => 1;
+plugin 'DirectoryServer', root => $dir, json => 1;
 
 use Test::More tests => 2;
 use Test::Mojo;
