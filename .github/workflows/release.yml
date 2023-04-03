@@ -9,6 +9,8 @@ on:
     push:
         tags:
             - 'release-*'
+    workflow_dispatch:
+
 jobs:
     perl:
         runs-on: ${{ matrix.os }}
