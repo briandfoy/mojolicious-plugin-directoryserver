@@ -56,10 +56,11 @@ jobs:
             - name: Changes extract
               run: |
                 perl -00 -lne 'next unless /\A\d+\.\d+(_\d+)?/; print; last' Changes > Changes-latest
+                cat Changes-latest
               id: extract
             - name: upload
               uses: softprops/action-gh-release@v1
-              #if: startsWith(github.ref, 'refs/tags/')
+              if: startsWith(github.ref, 'refs/tags/')
               with:
                 body_path: Changes-latest
                 draft: false
