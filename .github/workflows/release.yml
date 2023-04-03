@@ -53,19 +53,17 @@ jobs:
             - name: version
               run: echo "::set-output name=version::$(perl -le 'print $ARGV[0] =~ m/(.*?).tar.gz/' *.tar.gz)"
               id: version
-            - name: release
-              uses: actions/create-release@v1
-              id: create_release
-              env:
-                GITHUB_TOKEN: ${{ secrets.LOCAL_GITHUB_TOKEN }}
-              with:
-                draft: false
-                prerelease: false
-                release_name: ${{ steps.version.outputs.version }}
-                tag_name: ${{ github.ref }}
-                body_path: Changes
+            - name: Changes extract
+              run: |
+                perl -00 -lne 'next unless /\A\d+\.\d+(_\d+)?/; print; last' Changes > Changes-latest
+              id: version
             - name: upload
               uses: softprops/action-gh-release@v1
-              if: startsWith(github.ref, 'refs/tags/')
+              #if: startsWith(github.ref, 'refs/tags/')
               with:
+                body_path: Changes-latest
+                draft: false
+                prerelease: false
+                name: ${{ steps.version.outputs.version }}
                 files: "*.tar.gz"
+                token: ${{ secrets.LOCAL_GITHUB_TOKEN }}
