@@ -5,6 +5,9 @@
 # This file is licensed under the Artistic License 2.0
 name: release
 
+permissions:
+    contents: write
+
 on:
     push:
         tags:
@@ -67,4 +70,4 @@ jobs:
                 prerelease: false
                 name: ${{ steps.version.outputs.version }}
                 files: "*.tar.gz"
-                token: ${{ secrets.LOCAL_GITHUB_TOKEN }}
+                token: ${{ secrets.RELEASE_ACTION_TOKEN }}
