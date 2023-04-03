@@ -55,7 +55,7 @@ jobs:
               uses: actions/create-release@v1
               id: create_release
               env:
-                GITHUB_TOKEN: ${{ github.token }}
+                GITHUB_TOKEN: ${{ secrets.LOCAL_GITHUB_TOKEN }}
               with:
                 draft: false
                 prerelease: false
