@@ -47,6 +47,10 @@ C<< "index.html:index.htm" >>.
 
 =back
 
+=head1 AUTHOR
+
+Toby Inkster E<lt>tobyink@cpan.orgE<gt>.
+
 =head1 SEE ALSO
 
 L<Mojolicious::Plugin::DirectoryServer>

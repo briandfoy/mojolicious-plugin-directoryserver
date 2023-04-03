@@ -195,9 +195,13 @@ Mojolicious::Plugin::DirectoryServer - Serve static files from document root wit
       }
   })->start;
 
-  or
+or
 
   > perl -Mojo -E 'a->plugin("Directory", root => "/path/to/htdocs")->start' daemon
+
+or
+
+  > perl -Miniweb
 
 =head1 DESCRIPTION
 
@@ -295,7 +299,7 @@ Many thanks to the contributors for their work.
 
 =head1 SEE ALSO
 
-L<Plack::App::Directory>
+L<Plack::App::Directory>, L<iniweb>.
 
 =head1 LICENSE
 
