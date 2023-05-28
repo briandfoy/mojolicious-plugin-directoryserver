@@ -2,7 +2,7 @@ use v5.32;
 
 package Mojolicious::Plugin::DirectoryServer;
 
-our $VERSION = '1.002';
+our $VERSION = '1.003';
 
 use Cwd ();
 use Encode ();
