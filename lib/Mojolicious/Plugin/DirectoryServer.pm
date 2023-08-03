@@ -17,27 +17,33 @@ my $dir_page = <<'PAGE';
   <title>Index of <%= $cur_path %></title>
   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
   <style type='text/css'>
-table { width:100%%; }
-.name { text-align:left; }
-.size, .mtime { text-align:right; }
-.type { width:11em; }
-.mtime { width:15em; }
+table { margin: 0; border-collapse: collapse }
+.name { text-align:left; padding-left: 1em; }
+.size, .mtime { text-align:right; padding-left: 1em; }
+.type  { text-align:left; padding-left: 1em;}
+.mtime { text-align:left; padding-left: 1em; }
   </style>
+<link rel="stylesheet" href="/index.css">
 </head><body>
 <h1>Index of <%= $cur_path %></h1>
-<hr />
-<table>
-  <tr>
-    <th class='name'>Name</th>
-    <th class='size'>Size</th>
-    <th class='type'>Type</th>
-    <th class='mtime'>Last Modified</th>
+<hr id="top-rule"/>
+<table id="listing">
+  <tr id="listing-header" class="<%= $cur_path %>">
+    <th class="name">Name</th>
+    <th class="size">Size</th>
+    <th class="type">Type</th>
+    <th class="mtime">Last Modified</th>
   </tr>
-  % for my $file (@$files) {
-  <tr><td class='name'><a href='<%= $file->{url} %>'><%== $file->{name} %></a></td><td class='size'><%= $file->{size} %></td><td class='type'><%= $file->{type} %></td><td class='mtime'><%= $file->{mtime} %></td></tr>
+  % for my $file (@$files) { my $css_type = $file->{type} =~ s/;.*//r; $css_type =~ s|/|-|g;
+  <tr class="listing-row <%= $css_type %>-type" id="<%= $file->{name} =~ s|/\z||r %>">
+  	<td class="name"><a href='<%= $file->{url} %>'><%== $file->{name} %></a></td>
+  	<td class="size"><%= $file->{size} %></td>
+  	<td class="type"><%= $file->{type} %></td>
+  	<td class="mtime"><%= $file->{mtime} %></td>
+  </tr>
   % }
 </table>
-<hr />
+<hr id="bottom-rule"/>
 </body></html>
 PAGE
 
