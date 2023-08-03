@@ -1,5 +1,9 @@
 Revision history for Mojolicious-Plugin-DirectoryServer
 
+1.004 2023-08-03T05:38:39Z
+	* Improved the embedded CSS for the index.html pages, and allow for
+	an index.css.
+
 1.003 2023-05-28T13:32:10Z
 	* Update documents to use the right namespace (GitHub #3, lbe)
 
