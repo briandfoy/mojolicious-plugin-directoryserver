@@ -77,4 +77,4 @@
 \.gitattributes\b
 
 .downstream.json
-Mojolicious-*
+Mojolicious-.*
