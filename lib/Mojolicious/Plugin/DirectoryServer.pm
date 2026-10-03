@@ -227,7 +227,7 @@ Mojolicious::Plugin::DirectoryServer - Serve static files from arbitrary paths w
 
 or
 
-  > perl -Mojo -E 'a->plugin("DirectoryServer", root => "/path/to/htdocs")->start' daemon
+  > perl -Mojo -E 'plugin("DirectoryServer", root => "/path/to/htdocs")->start' daemon
 
 or
 
